@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Note.cs" />
+    <Compile Include="NoteSaver.cs" />
     <Compile Include="Pages\CreateNote.xaml.cs">
       <DependentUpon>CreateNote.xaml</DependentUpon>
     </Compile>

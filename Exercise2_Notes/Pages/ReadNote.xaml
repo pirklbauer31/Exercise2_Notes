@@ -12,7 +12,11 @@
 
     <Page.Resources>
         <DataTemplate x:Key="NoteTemplate" x:DataType="models:Note">
-            <TextBlock Text="{x:Bind NoteContent}"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding NoteContent}" Margin="2" />
+                <TextBlock Text="{Binding NoteDateTime}" Margin="2"></TextBlock>
+            </StackPanel>
+           
         </DataTemplate>
     </Page.Resources>
 

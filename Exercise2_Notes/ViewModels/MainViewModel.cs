@@ -33,7 +33,7 @@ namespace Exercise2_Notes.ViewModels
 
         public void AddNote()
         {
-            NoteSaver.Notes.Add(new Note(NewNoteContent, NewNoteDateTime));
+            NoteSaver.Notes.Add(new Note(NewNoteContent, DateTime.Now));
             NewNoteContent = string.Empty;
             NewNoteDateTime = DateTime.MinValue;
         }

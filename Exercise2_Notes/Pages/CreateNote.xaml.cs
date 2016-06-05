@@ -29,6 +29,7 @@ namespace Exercise2_Notes.Pages
         public CreateNote()
         {
             this.InitializeComponent();
+            txtDateTime.Text = DateTime.Now.ToString();
         }
 
         public MainViewModel ViewModel => DataContext as MainViewModel;
