@@ -18,7 +18,7 @@ namespace Exercise2_Notes.ViewModels
 
         public MainViewModel()
         {
-            Notes = new ObservableCollection<Note>();
+            Notes = new ObservableCollection<Note>(NoteSaver.Notes);
             AddNoteCommand = new RelayCommand(AddNote);
 
             navigationService = new NavigationService();
@@ -33,7 +33,7 @@ namespace Exercise2_Notes.ViewModels
 
         public void AddNote()
         {
-            Notes.Add(new Note(NewNoteContent, NewNoteDateTime));
+            NoteSaver.Notes.Add(new Note(NewNoteContent, NewNoteDateTime));
             NewNoteContent = string.Empty;
             NewNoteDateTime = DateTime.MinValue;
         }
