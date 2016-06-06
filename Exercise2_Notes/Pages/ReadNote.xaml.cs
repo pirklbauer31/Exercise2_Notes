@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Exercise2_Notes.Models;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +28,12 @@ namespace Exercise2_Notes.Pages
         public ReadNote()
         {
             this.InitializeComponent();
+
+            ObservableCollection<Note> notes = new ObservableCollection<Note>(NoteSaver.Notes);
+            for (int i = 1; i <= 3 && i <= notes.Count; i++)
+            {
+                ListViewNotes.Items.Add(notes[notes.Count-i]);
+            }
         }
 
         public MainViewModel ViewModel => DataContext as MainViewModel;

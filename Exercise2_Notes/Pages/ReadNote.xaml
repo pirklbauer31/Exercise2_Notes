@@ -13,7 +13,7 @@
     <Page.Resources>
         <DataTemplate x:Key="NoteTemplate" x:DataType="models:Note">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding NoteContent}" Margin="2" />
+                <TextBlock Text="{Binding NoteContent}" Margin="2" TextWrapping="Wrap" Width="200"/>
                 <TextBlock Text="{Binding NoteDateTime}" Margin="2"></TextBlock>
             </StackPanel>
            
@@ -21,8 +21,8 @@
     </Page.Resources>
 
     <Grid Background="#FFFFFF72">
-        <ListView HorizontalAlignment="Left" Height="620" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" 
-                  ItemTemplate="{StaticResource NoteTemplate}" ItemsSource="{x:Bind ViewModel.Notes}"/>
+        <ListView x:Name="ListViewNotes" HorizontalAlignment="Left" Height="620" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" 
+                  ItemTemplate="{StaticResource NoteTemplate}" />
 
     </Grid>
 </Page>
