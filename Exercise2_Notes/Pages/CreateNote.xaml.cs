@@ -29,7 +29,7 @@ namespace Exercise2_Notes.Pages
         public CreateNote()
         {
             this.InitializeComponent();
-            txtDateTime.Text = DateTime.Now.ToString();
+            txtDateTime.Text = DateTime.Now.ToString();             
         }
 
         public MainViewModel ViewModel => DataContext as MainViewModel;
@@ -45,6 +45,21 @@ namespace Exercise2_Notes.Pages
             if ((int)res.Id == 0)
             {
                 ViewModel.NavigateBack();
+            }
+        }
+
+        private async void cmdCreateNote_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNote.Text == String.Empty)
+            {
+                var dialog = new MessageDialog("Cannot add empty notes!");
+                dialog.Commands.Add(new UICommand { Label = "Ok", Id = 0 });
+                var res = await dialog.ShowAsync();
+            }
+
+            else
+            {
+                ViewModel.AddNote();
             }
         }
     }
