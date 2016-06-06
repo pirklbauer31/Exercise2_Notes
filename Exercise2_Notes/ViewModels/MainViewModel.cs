@@ -18,22 +18,28 @@ namespace Exercise2_Notes.ViewModels
 
         public MainViewModel()
         {
-            Notes = new ObservableCollection<Note>(NoteSaver.Notes);
+            //Notes = new ObservableCollection<Note>(NoteSaver.Notes);
+            Notes = new ObservableCollection<Note> { new Note("TestNote", DateTime.Now)};
             AddNoteCommand = new RelayCommand(AddNote);
+            MaxNotes = 5;
 
             navigationService = new NavigationService();
             navigationService.Configure("CreateNotePage", typeof(CreateNote));
             navigationService.Configure("ReadNotePage", typeof(ReadNote));
+            navigationService.Configure("SettingsPage", typeof(SettingsPage));
+            navigationService.Configure("SearchPage", typeof(SearchNote));
         }
 
-        public Note Note { get; }
-        public ObservableCollection<Note> Notes { get; }
+        public Note Note { get; set; }
+        public ObservableCollection<Note> Notes { get; set; }
         public string NewNoteContent { get; set; }
         public DateTime NewNoteDateTime { get; set; }
+        public int MaxNotes { get; set; }
 
         public void AddNote()
         {
-            NoteSaver.Notes.Add(new Note(NewNoteContent, DateTime.Now));
+            // NoteSaver.Notes.Add(new Note(NewNoteContent, DateTime.Now));
+            Notes.Add(new Note(NewNoteContent, DateTime.Now));
             NewNoteContent = string.Empty;
             NewNoteDateTime = DateTime.MinValue;
         }
@@ -48,6 +54,16 @@ namespace Exercise2_Notes.ViewModels
         public void NavigateToReadNotePage()
         {
             navigationService.NavigateTo("ReadNotePage");
+        }
+
+        public void NavigateToSettingsPage()
+        {
+            navigationService.NavigateTo("SettingsPage");
+        }
+
+        public void NavigateToSearchPage()
+        {
+            navigationService.NavigateTo("SearchPage");
         }
 
         public void NavigateBack()

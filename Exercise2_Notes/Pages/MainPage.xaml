@@ -13,8 +13,8 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="ms-appx:///Assets/Note-512.png"/>
         <Button x:Name="cmdNavCreateNote" Content="Create Note" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35" Click="{x:Bind ViewModel.NavigateToCreateNotePage}"/>
         <Button x:Name="cmdNavReadNote" Content="Read Notes" HorizontalAlignment="Left" Margin="115,159,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35" Click="{x:Bind ViewModel.NavigateToReadNotePage}"/>
-        <Button x:Name="cmdNavSearchNote" Content="Search " HorizontalAlignment="Left" Margin="115,264,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35"/>
-        <Button x:Name="cmdNavSettings" Content="Settings" HorizontalAlignment="Left" Margin="115,369,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35"/>
+        <Button x:Name="cmdNavSearchNote" Content="Search " HorizontalAlignment="Left" Margin="115,264,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35" Click="{x:Bind ViewModel.NavigateToSearchPage}"/>
+        <Button x:Name="cmdNavSettings" Content="Settings" HorizontalAlignment="Left" Margin="115,369,0,0" VerticalAlignment="Top" Width="235" Height="100" FontSize="35" Click="{x:Bind ViewModel.NavigateToSettingsPage}"/>
 
     </Grid>
 </Page>

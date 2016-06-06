@@ -13,8 +13,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Exercise2_Notes.Models;
-using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,17 +21,11 @@ namespace Exercise2_Notes.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ReadNote : Page
+    public sealed partial class SearchNote : Page
     {
-        public ReadNote()
+        public SearchNote()
         {
             this.InitializeComponent();
-
-            var notes = ViewModel.Notes;
-            for (int i = 1; i <= ViewModel.MaxNotes && i <= notes.Count; i++)
-            {
-                ListViewNotes.Items.Add(notes[notes.Count-i]);
-            }
         }
 
         public MainViewModel ViewModel => DataContext as MainViewModel;

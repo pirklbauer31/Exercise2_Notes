@@ -14,6 +14,6 @@ namespace Exercise2_Notes.ViewModels
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
-        public MainViewModel MainViewModel => new MainViewModel();
+        public MainViewModel MainViewModel => SimpleIoc.Default.GetInstance<MainViewModel>();
     }
 }
