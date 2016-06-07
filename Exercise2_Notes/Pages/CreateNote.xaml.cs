@@ -29,10 +29,46 @@ namespace Exercise2_Notes.Pages
         public CreateNote()
         {
             this.InitializeComponent();
-            txtDateTime.Text = DateTime.Now.ToString();             
+            txtDateTime.Text = DateTime.Now.ToString();
+
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ((App)App.Current).OnBackRequested += OnBackRequested;
+
+            base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            ((App)App.Current).OnBackRequested -= OnBackRequested;
+
+            base.OnNavigatingFrom(e);
+        }
+
+
+        private async void OnBackRequested(object sender, BackRequestedEventArgs args)
+        {
+                if (txtNote.Text == String.Empty)
+                {
+                    //args.handled auf true means it's already handled, so it stops the page from going back
+                    args.Handled = true;
+
+                    var dialog = new MessageDialog("Cannot add empty notes!");
+                    dialog.Commands.Add(new UICommand { Label = "Ok", Id = 0 });
+                    var res = await dialog.ShowAsync();
+                }
+
+                else
+                {
+                    HelpCreate();
+
+                }
+
+        }
         public MainViewModel ViewModel => DataContext as MainViewModel;
+
 
         private async void cmdCancelNote_Click(object sender, RoutedEventArgs e)
         {
@@ -62,5 +98,11 @@ namespace Exercise2_Notes.Pages
                 ViewModel.AddNote();
             }
         }
+
+        private void HelpCreate()
+        {
+            ViewModel.AddNote();
+        }
+
     }
 }
