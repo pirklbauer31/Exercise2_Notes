@@ -104,7 +104,7 @@ namespace Exercise2_Notes.Pages
             ViewModel.AddNote();
         }
 
-        //TestComment1
+        //TestComment
 
     }
 }
